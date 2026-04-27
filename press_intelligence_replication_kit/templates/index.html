@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Press Intelligence · Daily Press Brief</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="hdr" id="hdr"></header>
+  <div class="ticker"><div class="ticker-inner" id="ticker"></div></div>
+
+  <div class="tab-nav">
+    <button class="tab-btn active" data-tab="noticias">📊 Titulares &amp; Analisis</button>
+    <button class="tab-btn" data-tab="portadas">🗞️ Portadas del Dia</button>
+    <button class="tab-btn" data-tab="resumen">📋 Resumen por Pais</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-noticias">
+    <div class="cross">
+      <div class="cross-title">Temas con cobertura en multiples paises</div>
+      <div class="cross-grid" id="cross-grid"></div>
+    </div>
+
+    <div class="controls">
+      <span class="filter-label">Pais</span>
+      <div class="filter-group" id="country-filters"></div>
+      <span class="filter-label" style="margin-left:12px;">Tema</span>
+      <div class="filter-group" id="theme-filters"></div>
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input class="search-input" id="searchInput" type="text" placeholder="Buscar noticia..." />
+      </div>
+      <span class="count-badge" id="count-badge">0 noticias</span>
+    </div>
+
+    <div class="grid-wrap">
+      <div class="grid" id="news-grid"></div>
+      <div class="empty" id="empty-state">
+        <div class="empty-icon">🔎</div>
+        <div class="empty-text">No se encontraron noticias para esa busqueda.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="tab-portadas">
+    <div class="portadas-hdr">
+      <div class="portadas-eyebrow" id="covers-eyebrow"></div>
+      <div class="portadas-title" id="covers-title"></div>
+      <div class="portadas-sub" id="covers-sub"></div>
+    </div>
+    <div class="pcnav" id="pcnav-portadas"></div>
+    <div class="covers-section" id="covers-section"></div>
+  </div>
+
+  <div class="tab-panel" id="tab-resumen">
+    <div class="resumen-hdr">
+      <div class="resumen-eyebrow" id="summary-eyebrow"></div>
+      <div class="resumen-title">Resumen ejecutivo por pais</div>
+      <div class="resumen-sub">Lectura editorial de los temas dominantes por mercado</div>
+    </div>
+    <div class="pcnav" id="pcnav-resumen"></div>
+    <div class="resumen-section" id="summary-section"></div>
+  </div>
+
+  <footer class="ftr" id="footer"></footer>
+
+  <div class="modal-overlay" id="modal">
+    <div class="modal" id="modal-content">
+      <div class="modal-header">
+        <div>
+          <div class="modal-source-row"><span class="modal-flag" id="m-flag"></span><span class="modal-source" id="m-source"></span></div>
+          <div class="modal-title" id="m-title"></div>
+        </div>
+        <button class="modal-close" id="modal-close">✕</button>
+      </div>
+      <span class="modal-theme" id="m-theme"></span>
+      <div class="modal-body" id="m-body"></div>
+      <div id="m-link-wrap"></div>
+      <div class="modal-footer" id="m-footer"></div>
+    </div>
+  </div>
+
+  <div class="lb-overlay" id="lb-overlay">
+    <div class="lb-wrap">
+      <button class="lb-arr lb-prev" id="lb-prev">‹</button>
+      <button class="lb-arr lb-next" id="lb-next">›</button>
+      <button class="lb-x" id="lb-close">✕</button>
+      <img id="lb-img" class="lb-img" src="" alt="" />
+      <div class="lb-bar">
+        <div class="lb-bar-top"><div class="lb-src" id="lb-src"></div><div class="lb-ctr"><strong id="lb-num">1</strong> / <span id="lb-tot">0</span></div></div>
+        <div class="lb-hl" id="lb-hl"></div>
+        <div class="lb-act"><a id="lb-url" class="lb-btn-p" href="#" target="_blank" rel="noopener">🌐 Ir al sitio</a><button class="lb-btn-n" id="lb-prev-2">← Ant</button><button class="lb-btn-n" id="lb-next-2">Sig →</button></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
